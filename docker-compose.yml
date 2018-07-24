@@ -1,20 +1,24 @@
 version: '2'
 services:
-    wordcampdb:
+    mysqldb:
       image: mysql:5.6.33
-      container_name: wordcampdb
+      container_name: mysqldb
       environment:
          - MYSQL_ROOT_PASSWORD=root
-         - MYSQL_DATABASE=wordcamp
+         - MYSQL_DATABASE=wordpress
       volumes:
         - ./mysqldb:/var/lib/mysql
         - ./support:/var/support
       ports:
-        - "3586:3306"
-    wordcamp:
-      build: ./webdocs
+        - "3300:3306"
+    wordpress:
+      build:
+          context: .
+          dockerfile: ./Dockerfile
       ports:
         - "8000:80"
+      links:
+          - mysqldb
       volumes:
         - ./webdocs:/var/www/sites
         - ./tmp:/tmp
