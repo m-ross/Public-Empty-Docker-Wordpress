@@ -1,3 +1,3 @@
-FROM wordpress
+FROM partnercomm/apache2php7-ssl:latest
 
-COPY ./webdocs /var/www/html
+COPY webdocs /var/www/sites

@@ -1,0 +1,23 @@
+{
+  "config": {
+    "secure-http": false
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "johnpbloch/wordpress": "4.9.*"
+  },
+  "extra": {
+    "wordpress-install-dir": "webdocs/public/core",
+    "installer-paths": {
+      "public/content/mu-plugins/{$name}/": ["type:worpdress-muplugin"],
+      "public/content/p/{$name}/": ["type:wordpress-plugin"],
+      "public/content/t/{$name}/": ["type:wordpress-theme"]
+    }
+  }
+}

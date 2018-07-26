@@ -1,2 +1,4 @@
 mysqldb
 tmp
+webdocs/public/core
+vendor
