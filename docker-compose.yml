@@ -21,4 +21,3 @@ services:
           - mysqldb
       volumes:
         - ./webdocs:/var/www/sites
-        - ./tmp:/tmp
