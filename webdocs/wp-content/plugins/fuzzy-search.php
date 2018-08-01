@@ -91,7 +91,7 @@ function recommendDecide() { // decide on recommendation to make, if necessary
             }
         }
         
-        if ($distThreshold > $distanceMin / strlen($termClosest)) { // closest word must still be closer than a threshold to be accepted
+        if (!empty($termClosest) and $distThreshold > $distanceMin / strlen($termClosest)) { // closest word must still be closer than a threshold to be accepted
             $recommend = $termClosest;
             $sqlQuery = 'UPDATE fuzzySearch.searchTerms SET recommend = \'' . $recommend . '\' WHERE term = \'' . $escapeTerm . '\'';
             $db->query($sqlQuery); // add the new recommendation to database
